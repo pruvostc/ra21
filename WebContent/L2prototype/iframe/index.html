@@ -6,6 +6,21 @@
 
     <script src="../js/dist/zoid.min.js"></script>
     <script src="../js/findinstitution.js"></script>
+    <script type="text/javascript">
+  /**
+   * Constructs a WAYFLess URL
+   * @param {String} entityId
+   *   entityID value
+   * @return {String} url
+   *   WAYFLess URL as a string
+   */
+    function getWayfLessUrl(entityId) {
+	    return "https://auth.elsevier.com/ShibAuth/institutionLogin?entityID="
+	      + encodeURIComponent(entityId)
+	      + "&appReturnURL=http%3A%2F%2Fwww.sciencedirect.com%2Fscience";
+    }
+
+  </script>
 </head>
 
 <body>
@@ -39,7 +54,8 @@
             onInstitutionClicked: function(entityID) {
                 console.log('User selected entityID:', entityID);
                 if (entityID != "") {
-                	document.querySelector('#result').innerText = entityID + ' Selected!';
+                	//document.querySelector('#result').innerText = entityID + ' Selected!';
+                	parent.document.location.href = getWayfLessUrl(entityID);
                 } else {
                 	// default to visiting the discovery service 'Check Access'
                 	document.querySelector('#result').innerText = 'Visit the discovery service!';
