@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.css" />
+    <link rel="stylesheet" href="../common/index.css" />
+
+    <script src="../js/dist/zoid.min.js"></script>
+    <script src="../js/findinstitution.js"></script>
+</head>
+
+<body>
+
+    <div id="container"></div>
+    <div id="result"></div>
+
+    <script>
+
+        // Render the component
+
+        MyFindInstitutionComponent.render({
+
+        	// discovery service URL
+        	dsURL: 'https://nightly.pyff.io/role/idp.ds?entityID=https%3A%2F%2Fsciencedirect-ra21.mnt.se%2Fshibboleth&return=https%3A%2F%2Fsciencedirect-ra21.mnt.se%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dss%253Amem%253A7ca61fa0f0474f244edb76d6ebbccbcdee4e0b81b492791f721ce8b26804fc70',
+        	// application return URL
+            returnURL: 'http://www.sciencedirect.com',
+            // colour of the button
+            boxColor: '#3cba54',
+            // Default institutionalIcon
+            DefaultInstIcon: '../images/panth2.png',
+            // Default Text to show when nothing is found in the local storage
+            DefaultText: 'Check Access2',
+            // default dimensions for the component
+            dimensions: {
+                width: '300px',
+                height: '100px'
+            },
+            
+            // action when the button 'institution name' is clicked
+            onInstitutionClicked: function(entityID) {
+                console.log('User selected entityID:', entityID);
+                if (entityID != "") {
+                	document.querySelector('#result').innerText = entityID + ' Selected!';
+                } else {
+                	// default to visiting the discovery service 'Check Access'
+                	document.querySelector('#result').innerText = 'Visit the discovery service!';
+                }
+            }
+        
+
+        }, '#container');
+
+    </script>
+
+</body>
