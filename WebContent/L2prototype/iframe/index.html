@@ -55,7 +55,8 @@
                 console.log('User selected entityID:', entityID);
                 if (entityID != "") {
                 	//document.querySelector('#result').innerText = entityID + ' Selected!';
-                	parent.document.location.href = getWayfLessUrl(entityID);
+                	//parent.document.location.href = getWayfLessUrl(entityID);
+                	window.top.location.href = getWayfLessUrl(entityID);
                 } else {
                 	// default to visiting the discovery service 'Check Access'
                 	document.querySelector('#result').innerText = 'Visit the discovery service!';
