@@ -11,35 +11,29 @@
     <script src="../js/findinstitution.js"></script>
     
     <!-- remote local storage entityID discovery - start -->
-<script type="text/javascript">
-  /**
-   * Constructs a WAYFLess URL
-   * @param {String} entityId
-   *   entityID value
-   * @return {String} url
-   *   WAYFLess URL as a string
-   */
-    function getWayfLessUrl(entityId) {
-	    return "https://auth.elsevier.com/ShibAuth/institutionLogin?entityID="
-	      + encodeURIComponent(entityId)
-	      + "&appReturnURL=http%3A%2F%2Fwww.sciencedirect.com%2Fscience";
-    }
-
-  </script>
+	<script type="text/javascript">
+	  /**
+	   * Constructs a WAYFLess URL
+	   * @param {String} entityId entityID value
+	   * @return {String} url WAYFLess URL as a string
+	   */
+	    function getWayfLessUrl(entityId) {
+		    return "https://auth.elsevier.com/ShibAuth/institutionLogin?entityID="
+		      + encodeURIComponent(entityId)
+		      + "&appReturnURL=http%3A%2F%2Fwww.sciencedirect.com%2Fscience";
+	    }
+  	</script>
 <!-- remote local storage entityID discovery - end -->	
 </head>
 
 <body>
-	<script>
-		
-	</script>
     <!-- Set up Access Through Your institution -->
-    <!-- Set up a login form -->
-    <form id="loginForm">
+    <form id="axButtonForm">
         <span><a href="https://nightly.pyff.io/role/idp.ds?entityID=https%3A%2F%2Fsciencedirect-ra21.mnt.se%2Fshibboleth&return=https%3A%2F%2Fsciencedirect-ra21.mnt.se%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dss%253Amem%253A7ca61fa0f0474f244edb76d6ebbccbcdee4e0b81b492791f721ce8b26804fc70" target="_blank">Access through your institution</a></span>
-    	<div id="CTAcnt" class="CTAcontainer"><div class="logobox"><img id="instLogo" width="32" height="32" src=""></div><div class="orgNameWidget" id="instWidgetV"></div></div>
-        <!--
-        <button id="loginButton" class="btn btn-primary">Log In</button-->
+    	<div id="CTAcnt" class="CTAcontainer">
+    		<div class="logobox"><img id="instLogo" width="32" height="32" src=""></div>
+    		<div class="orgNameWidget" id="instWidgetV"></div>
+    	</div>
     </form>
 
     <svg id="spinner" class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
@@ -97,12 +91,12 @@
         // Hide the loading spinner by default
         document.querySelector('#spinner').style.display = 'none';
         
-        // Handle the button click to log the user in
+        // Handle the button click to redirect the user to DS service or sign in via the Identity Provider
         document.querySelector('#instWidgetV').addEventListener('click', function(event) {
             event.preventDefault();
 
             // Hide the login form and replace it with a spinner
-            document.querySelector('#loginForm').style.display = 'none';
+            document.querySelector('#axButtonForm').style.display = 'none';
             document.querySelector('#spinner').style.display = 'inline-block';
 
             // Pretend to make an ajax call to log the user in

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.css" />
     <link rel="stylesheet" href="../common/index.css" />
@@ -7,36 +6,29 @@
     <script src="../js/dist/zoid.min.js"></script>
     <script src="../js/findinstitution.js"></script>
     <script type="text/javascript">
-  /**
-   * Constructs a WAYFLess URL
-   * @param {String} entityId
-   *   entityID value
-   * @return {String} url
-   *   WAYFLess URL as a string
-   */
-    function getWayfLessUrl(entityId) {
-	    return "https://auth.elsevier.com/ShibAuth/institutionLogin?entityID="
-	      + encodeURIComponent(entityId)
-	      + "&appReturnURL=http%3A%2F%2Fwww.sciencedirect.com%2Fscience";
-    }
-
-  </script>
+	  /**
+	   * Constructs a WAYFLess URL to sign in via the IDP and return to the product
+	   * @param {String} entityId entityID value
+	   * @return {String} url WAYFLess URL as a string
+	   */
+	    function getWayfLessUrl(entityId) {
+		    return "https://auth.elsevier.com/ShibAuth/institutionLogin?entityID="
+		      + encodeURIComponent(entityId)
+		      + "&appReturnURL=http%3A%2F%2Fwww.sciencedirect.com%2Fscience";
+	    }
+  	</script>
 </head>
-
 <body>
-
     <div id="container"></div>
     <div id="result"></div>
-
     <script>
 
         // Render the component
-
         MyFindInstitutionComponent.render({
 
-        	// discovery service URL
-        	dsURL: 'https://nightly.pyff.io/role/idp.ds?entityID=https%3A%2F%2Fsciencedirect-ra21.mnt.se%2Fshibboleth&return=https%3A%2F%2Fsciencedirect-ra21.mnt.se%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dss%253Amem%253A7ca61fa0f0474f244edb76d6ebbccbcdee4e0b81b492791f721ce8b26804fc70',
-        	// application return URL
+            // discovery service URL
+            dsURL: 'https://nightly.pyff.io/role/idp.ds?entityID=https%3A%2F%2Fsciencedirect-ra21.mnt.se%2Fshibboleth&return=https%3A%2F%2Fsciencedirect-ra21.mnt.se%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dss%253Amem%253A7ca61fa0f0474f244edb76d6ebbccbcdee4e0b81b492791f721ce8b26804fc70',
+            // application return URL
             returnURL: 'http://www.sciencedirect.com',
             // colour of the button
             boxColor: '#3cba54',
@@ -55,17 +47,14 @@
                 console.log('User selected entityID:', entityID);
                 if (entityID != "") {
                 	//document.querySelector('#result').innerText = entityID + ' Selected!';
-                	//parent.document.location.href = getWayfLessUrl(entityID);
                 	window.top.location.href = getWayfLessUrl(entityID);
                 } else {
                 	// default to visiting the discovery service 'Check Access'
-                	document.querySelector('#result').innerText = 'Visit the discovery service!';
+                	// document.querySelector('#result').innerText = 'Visit the discovery service!';
+                	window.top.location.href = getWayfLessUrl(entityID);
                 }
             }
         
-
         }, '#container');
-
     </script>
-
 </body>
