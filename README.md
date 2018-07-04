@@ -7,5 +7,4 @@
 ### Content of the project
 Level 2 prototype
 - This prototype implements the insertion of a CTA button in an iframe, showing either the last institution selected via a discovery service and stored in localstorage or a 'Check Access' feature allowing to look for your institution via the discovery service.
-
 (TODO - more coming soon)
