@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../common/findinstitution.css" />
     <link href="//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700" type="text/css" rel="stylesheet">
     
-    <!-- Pull in zoid and the findinstitution component we defined -->
+    <!-- Pull in zoid and the 'findinstitution' component we defined -->
     <script src="../js/dist/zoid.min.js"></script>
     <script src="../js/findinstitution.js"></script>
     
@@ -99,8 +99,7 @@
             document.querySelector('#axButtonForm').style.display = 'none';
             document.querySelector('#spinner').style.display = 'inline-block';
 
-            // Pretend to make an ajax call to log the user in
-
+            // Pretend to make an ajax call - could be re-written more simply? -
             setTimeout(function() {
 
                 // Since we had a click, call-back the parent page to let them know the entityID
