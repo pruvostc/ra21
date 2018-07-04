@@ -48,12 +48,15 @@ body {
    	transform: translate(-50%, -50%);
    	width: 100%;
 }
+
+/* specific style for IE 10+ starts here */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
 /* IE10+ CSS styles go here */
 	a.orgNameURL{
-		position:relative; /* fixing a float:right bug in IE */
+		position:relative; /* fixing a float:right bug in IE11 */
 	}
-}
+} /* specific style for IE 10+ ends here */
+
 .logobox {
 	float: left;
     border: 0px;
