@@ -1,1 +1,8 @@
-# Empty CSS file for your own CSS
+/*Empty CSS file for your own CSS*/
+
+#componentframe {
+	width: 300px;
+	height: 100px;
+	background-color: transparent;
+	overflow: hidden;
+}
