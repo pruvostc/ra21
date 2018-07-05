@@ -13,7 +13,7 @@ window.MyFindInstitutionComponent = zoid.create({
     // default dimensions for the component
     dimensions: {
     	width: '300px',
-    	height: '100px'
+    	height: '80px'
     },
     
     // defines the log level in the JavaScript console
@@ -30,4 +30,5 @@ window.MyFindInstitutionComponent = zoid.create({
         iframe: true,
         popup: false
     }
+    
 });
