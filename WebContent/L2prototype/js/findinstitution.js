@@ -8,8 +8,12 @@ window.MyFindInstitutionComponent = zoid.create({
     // url: 'http://www.my-site.com/my-findinstitution-component'
     // you can also call it from the following (not recommended in production environments)
     // url: zoid.getCurrentScriptDir() + '/../js/findinstitution.html'
-    url: 'http://127.0.0.1:8080/ra21/L2prototype/js/findinstitution.html',
-    
+    url: {
+    	local: 'http://127.0.0.1:8080/ra21/L2prototype/js/findinstitution.html',
+    	live: 'https://my-live-site.com/mycomponent'
+    },
+    defaultEnv: 'local',
+
     // default dimensions for the component
     dimensions: {
     	width: '300px',
