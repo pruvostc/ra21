@@ -12,7 +12,7 @@ window.MyFindInstitutionComponent = zoid.create({
     	local: 'http://127.0.0.1:8080/ra21/z-component/js/findinstitution.html',
     	testlocal: 'http://localhost:8888/ra21/z-component/js/findinstitution.html',
     	test: 'http://crispy-snippets.appspot.com/ra21/z-component/js/findinstitution.html',
-    	live: 'https://my-live-site.com/mycomponent'
+    	live: 'https://nightly.pyff.io/ra21/z-component/js/findinstitution.html'
     },
     defaultEnv: 'testlocal',
 
