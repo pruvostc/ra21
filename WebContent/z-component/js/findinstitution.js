@@ -9,10 +9,12 @@ window.MyFindInstitutionComponent = zoid.create({
     // you can also call it from the following (not recommended in production environments)
     // url: zoid.getCurrentScriptDir() + '/../js/findinstitution.html'
     url: {
-    	local: 'http://127.0.0.1:8080/ra21/L2prototype/js/findinstitution.html',
+    	local: 'http://127.0.0.1:8080/ra21/z-component/js/findinstitution.html',
+    	testlocal: 'http://localhost:8888/ra21/z-component/js/findinstitution.html',
+    	test: 'http://crispy-snippets.appspot.com/ra21/z-component/js/findinstitution.html',
     	live: 'https://my-live-site.com/mycomponent'
     },
-    defaultEnv: 'local',
+    defaultEnv: 'testlocal',
 
     // default dimensions for the component
     dimensions: {

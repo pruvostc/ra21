@@ -1,4 +1,4 @@
-<!-- This is the zoid component found under the 'url' parameter -->
+<!-- This is the zoid component found under the 'url':{'live': or 'local': } parameter -->
 
 <head>
 
@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../common/findinstitution.css" />
     <link href="//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700" type="text/css" rel="stylesheet">
     
-    <!-- Pull in zoid and the 'findinstitution' component we defined -->
+    <!-- Pull in zoid and the 'findinstitution' zoid component -->
     <script src="../js/dist/zoid.min.js"></script>
     <script src="../js/findinstitution.js"></script>
     
@@ -29,7 +29,6 @@
 <body>
     <!-- Set up Access Through Your institution -->
     <form id="axButtonForm">
-        <!--span><a href="https://nightly.pyff.io/role/idp.ds?entityID=https%3A%2F%2Fsciencedirect-ra21.mnt.se%2Fshibboleth&return=https%3A%2F%2Fsciencedirect-ra21.mnt.se%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dss%253Amem%253A7ca61fa0f0474f244edb76d6ebbccbcdee4e0b81b492791f721ce8b26804fc70" target="_blank">Access through your institution</a></span -->
     	<div id="CTAcnt" class="CTAcontainer">
     		<div class="logobox"><img id="instLogo" width="32" height="32" src=""></div>
     		<div class="orgNameWidget" id="instWidgetV"></div>
@@ -43,14 +42,16 @@
     <script>
 		// assuming the component is hosted in the domain where the localstorage from Discovery service is
 		// we should be able to directly load the localstorage
-		let storageObjects = localStorage.getItem('pyff_discovery_choices') ? JSON.parse(localStorage.getItem('pyff_discovery_choices')) : [];
+		var storage_key = 'pyff_discovery_choices';
+		let storageObjects = localStorage.getItem(storage_key) ? JSON.parse(localStorage.getItem(storage_key)) : [];
 		var j = 0;
 		var inst = "";
-		var navReturnURL = "";
+		var navReturnURL = ""; // will lead to directing the user to 'check access' via a discovery service
 		var entityID = ""; // an empty value will results in using the defaultText value.
 		var defaultText = "Check Access";
 		var boxColor = "blue";
 		var icon = "../images/panth2.png";
+		var dsURL = 'http://discovery.service/url'; // discovery service URL (here would be the default value, this is overwritten)
 		
 		// Modify the default institutional icon if we're passed the parameter 'defaultIcon'
 	    if (window.xprops.DefaultInstIcon) {
@@ -65,6 +66,11 @@
      	// Modify the returnURL if we're passed the parameter 'returnURL'
         if (window.xprops.returnURL) {
         	navReturnURL = window.xprops.returnURL;
+        }
+     	
+     // Modify the returnURL if we're passed the parameter 'returnURL'
+        if (window.xprops.dsURL) {
+        	dsURL = window.xprops.dsURL;
         }
         
      	// extract the first (most recent) institution from the P3W cross-domain local Storage
