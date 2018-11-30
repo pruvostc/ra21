@@ -109,7 +109,7 @@
             setTimeout(function() {
 
                 // Since we had a click, call-back the parent page to let them know the entityID
-                window.xprops.onInstitutionClicked(entityID);
+                window.xprops.onInstitutionClicked(entityID,dsURL);
                 window.xchild.close();
 
             }, 100);

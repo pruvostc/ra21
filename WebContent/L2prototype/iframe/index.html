@@ -44,7 +44,7 @@
             DefaultText: 'Check access',
             
             // action when the button 'institution name' is clicked
-            onInstitutionClicked: function(entityID) {
+            onInstitutionClicked: function(entityID,discoURL) {
                 console.log('User selected entityID:', entityID);
                 if (entityID != "") {
                 	//document.querySelector('#result').innerText = entityID + ' Selected!';
@@ -52,7 +52,8 @@
                 } else {
                 	// default to visiting the discovery service 'Check Access'
                 	// document.querySelector('#result').innerText = 'Visit the discovery service!';
-                	window.top.location.href = getWayfLessUrl(entityID);
+                	console.log('discovery service URL:', discoURL);
+                	window.top.location.href = 'https://nightly.pyff.io/role/idp.ds?entityID=https%3A%2F%2Fsciencedirect-ra21.mnt.se%2Fshibboleth&return=https%3A%2F%2Fsciencedirect-ra21.mnt.se%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dss%253Amem%253A7ca61fa0f0474f244edb76d6ebbccbcdee4e0b81b492791f721ce8b26804fc70';
                 }
             }
         
